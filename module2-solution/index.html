@@ -32,10 +32,15 @@
         <div ng-controller="ToBuyShoppingController as listToBuy">
           <h2>To Buy</h2>
           <ol>
-            <li ng-repeat="item in listToBuy.items;">
-              {{ item.quantity }} of {{ item.name }} 
-              <button class="btn btn-primary btn-xs" ng-click="listToBuy.checkOff($index);">Check off</button>
-            </li>
+            <div ng-show="listToBuy.items.length > 0">
+              <li ng-repeat="item in listToBuy.items;">
+                {{ item.quantity }} of {{ item.name }} 
+                <button class="btn btn-primary btn-xs" ng-click="listToBuy.checkOff($index);">Bought</button>
+              </li>
+            </div>
+            <div ng-show="listToBuy.items.length == 0">
+              <p>All items bought!</p>
+            </div>
           </ol>
         </div>
       </div>
@@ -43,9 +48,14 @@
       <div class="col-md-6">
         <div ng-controller="AlreadyBoughtShoppingController as listBought">
           <h2>Already Bought</h2>
-          <ol>
-            <li ng-repeat="item in listBought.items;">{{ item.quantity }} of {{ item.name }}</li>
-          </ol>
+          <div ng-show="listBought.items.length > 0">
+            <ol>
+              <li ng-repeat="item in listBought.items;">{{ item.quantity }} of {{ item.name }}</li>
+            </ol>
+          </div>
+          <div ng-show="listBought.items.length == 0">
+            <p>Nothing bought yet!</p>
+          </div>
         </div>
       </div>
     </div>
