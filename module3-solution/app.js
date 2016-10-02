@@ -19,6 +19,7 @@
     ctrl.search = function() {
       //If textbox not empty - do search...
       if(ctrl.searchFor && ctrl.searchFor.length > 0) {
+        ctrl.searchResult = "";
         var promise = MenuSearchService.getMatchedMenuItems(ctrl.searchFor);
         
         promise.then(function(result) {
