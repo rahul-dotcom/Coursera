@@ -35,6 +35,7 @@
     };
 
     ctrl.dontWant = function(index) {
+      console.log("Index: ", index);
       ctrl.found.splice(index, 1);
     };
   }
@@ -88,13 +89,16 @@
       //   +"<b>{{ item.name }} [{{ item.short_name }}]</b><br />"
       //   + "Content: {{ item.description }}</li></ul>"
       //   + "<p>{{ result }}</p>",
-      templateUrl: "./itemList.html",
+      templateUrl: "itemList.html",
       scope: {
         list: "<",
         title: "@title",
         result: "@result",
         dontWant: "&"
-      }
+      },
+      // controller: FoundItemsDirectiveController,
+      // controllerAs: "list",
+      // bindToController: true
     };
 
     return ddo;
